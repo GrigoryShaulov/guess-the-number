@@ -24,7 +24,7 @@ public class Main {
             }
         }
 
-        System.out.println("❌ You've used all " + maxAttempts + " attempts. The number was: " + numberToGuess);
+        System.out.println("You've used all " + maxAttempts + " attempts. The number was: " + numberToGuess);
         scanner.close();
     }
 }

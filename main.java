@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int numberToGuess = (int) (Math.random() * 100) + 1;
+        int numberToGuess = (int) (Math.random() * 50) + 1;
         int attempts = 0;
         int maxAttempts = 7;
 
