@@ -1,25 +1,30 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        Random rand = new Random();
-        int numberToGuess = rand.nextInt(100) + 1;
-        int guess = 0;
+        int numberToGuess = (int) (Math.random() * 100) + 1;
+        int attempts = 0;
+        int maxAttempts = 7;
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Guess a number between 1 and 100:");
+        System.out.println("Guess the number between 1 and 100. You have " + maxAttempts + " attempts!");
 
-        while (guess != numberToGuess) {
-            guess = scanner.nextInt();
-            if (guess < numberToGuess) {
-                System.out.println("Too low. Try again.");
-            } else if (guess > numberToGuess) {
-                System.out.println("Too high. Try again.");
+        while (attempts < maxAttempts) {
+            System.out.print("Enter your guess: ");
+            int guess = scanner.nextInt();
+            attempts++;
+
+            if (guess == numberToGuess) {
+                System.out.println("Correct! You guessed the number in " + attempts + " attempts.");
+                return;
+            } else if (guess < numberToGuess) {
+                System.out.println("Too low!");
             } else {
-                System.out.println("Correct! You guessed the number.");
+                System.out.println("Too high!");
             }
         }
+
+        System.out.println("You've used all " + maxAttempts + " attempts. The number was: " + numberToGuess);
         scanner.close();
     }
 }
